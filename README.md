@@ -1,9 +1,5 @@
 # QmailLog
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/qmail_log`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,7 +18,92 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Analyze your pmail log
+
+* localhost
+
+```
+QmailLog.analyze(PATH_TO_LOG) => array
+```
+
+* SSH
+
+```
+QmailLog.analyze(PATH_TO_LOG, SSH_HOST, {
+  port: SSH_PORT
+  user: SSH_USER
+  password: SSH_PASSWORD
+  }) => array
+```
+
+Returned array has following format:
+
+```
+[{:time=>
+   {:new=>"2000-03-06T17:45:10Z",
+    :info=>"2000-03-06T17:45:10Z",
+    :starting=>"2000-03-06T17:45:10Z",
+    :delivery=>"2000-03-06T17:45:11Z",
+    :end=>"2000-03-06T17:45:11Z"},
+  :bytes=>"2343",
+  :from=>"alotofwe@email.com",
+  :qp=>"18695",
+  :uid=>"49491",
+  :delivery_id=>"2392",
+  :region=>"remote",
+  :to=>"suzupy@email.com",
+  :status=>
+   "success:209.85.127.177_accepted_message./Remote_host_said:_250_CAA01516_Message_accepted_for_delivery/",
+  :queue_id=>"93869"},
+
+  ... 
+]
+
+```
+
+### Parse returned array
+
+* JSON
+
+```
+QmailLog.parse(array, :json)
+  => [{"time":{"new":"2000-03-06T17:45:10Z","info":"2000-03-06T17:45:10Z","starting":"2000-03-06T17:45:10Z","delivery":"2000-03-06T17:45:11Z","end":"2000-03-06T17:45:11Z"},"bytes":"2343","from":"dave@sill.org","qp":"18695","uid":"49491","delivery_id":"2392","region":"remote","to":"lwq@w3.to","status":"success:209.85.127.177_accepted_message./Remote_host_said:_250_CAA01516_Message_accepted_for_delivery/","queue_id":"93869"},
+
+  ...
+```
+
+* YAML
+
+```
+QmailLog.parse(array, :yaml)
+=> ---
+   - :time:
+       :new: '2000-03-06T17:45:10Z'
+       :info: '2000-03-06T17:45:10Z'
+       :starting: '2000-03-06T17:45:10Z'
+       :delivery: '2000-03-06T17:45:11Z'
+       :end: '2000-03-06T17:45:11Z'
+     :bytes: '2343'
+     :from: dave@sill.org
+     :qp: '18695'
+     :uid: '49491'
+     :delivery_id: '2392'
+     :region: remote
+     :to: lwq@w3.to
+     :status: success:209.85.127.177_accepted_message./Remote_host_said:_250_CAA01516_Message_accepted_for_delivery/
+     :queue_id: '93869'
+
+     ...
+```
+
+* LTSV
+
+```
+QmailLog.parse(array, :ltsv)
+  => bytes:2343	from:dave@sill.org	qp:18695	uid:49491	delivery_id:2392	region:remote	to:lwq@w3.to	status:success:209.85.127.177_accepted_message./Remote_host_said:_250_CAA01516_Message_accepted_for_delivery/	queue_id:93869	new_time:2000-03-06T17:45:10Z	info_time:2000-03-06T17:45:10Z	starting_time:2000-03-06T17:45:10Z	delivery_time:2000-03-06T17:45:11Z	end_time:2000-03-06T17:45:11Z
+
+  ...
+```
 
 ## Development
 
