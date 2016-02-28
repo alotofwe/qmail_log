@@ -3,7 +3,7 @@ module QmailLog
     class JSON
       class << self
         def parse data
-          data.to_json
+          ::JSON.dump(data)
         end
       end
     end
