@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-### Analyze your pmail log
+### Analyze your qmail log
 
 * localhost
 
