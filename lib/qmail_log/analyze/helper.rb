@@ -34,7 +34,7 @@ module QmailLog
         _, delivery_id, *status = content.split
         {
           delivery_id: delivery_id.gsub(':', ''),
-          status:      status.join
+          status:      status.join(' ')
         }
       end
     end
