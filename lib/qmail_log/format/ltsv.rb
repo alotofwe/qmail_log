@@ -5,9 +5,10 @@ module QmailLog
         def parse data
           ltsv = ''
           data.each do |d|
-            d[:time].each { |key, value| d["#{key}_time".to_sym] = value }
-            d.delete(:time)
-            ltsv << "#{LTSV.dump(d)}\n"
+            time = d[:time].inject({}) { |res, (key, value)| res["#{key}_time".to_sym] = value; res }
+            ltsv << "#{::LTSV.dump(
+              d.select { |key, value| key.to_sym != :time }.merge(time)
+            )}\n"
           end
           ltsv
         end
