@@ -30,10 +30,10 @@ QmailLog.analyze(PATH_TO_LOG) => array
 
 ```
 QmailLog.analyze(PATH_TO_LOG, SSH_HOST, {
-  port: SSH_PORT
-  user: SSH_USER
+  port:     SSH_PORT
+  user:     SSH_USER
   password: SSH_PASSWORD
-  }) => array
+}) => array
 ```
 
 Returned array has following format:
