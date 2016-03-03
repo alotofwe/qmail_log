@@ -1,0 +1,16 @@
+@4000000038c3eeb027f41c7c new msg 93869
+@4000000038c3eeb027f6b0a4 info msg 93869: bytes 2343 from <dave@sill.org> qp 18695 uid 49491
+@4000000038c3eeb02877ee94 starting delivery 2392: msg 93869 to remote lwq@w3.to
+@4000000038c3eeb0287b55ac status: local 0/10 remote 1/20
+@4000000038c3eeb104a13804 delivery 2392: success: 209.85.127.177_accepted_message. /Remote_host_said:_250_CAA01516_Message_accepted_for_delivery/
+@4000000038c3eeb104a4492c status: local 0/10 remote 0/20
+@4000000038c3eeb104a6ecf4 end msg 93869
+@4000000048c3eeb027f41c7c new msg 869
+@4000000048c3eeb027f6b0a4 info msg 869: bytes 2343 from <dave@sill.org> qp 18695 uid 49491
+@4000000048c3eeb02877ee94 starting delivery 2392: msg 869 to remote lwq@w3.to
+@4000000048c3eeb0287b55ac status: local 0/10 remote 1/20
+@4000000048c3eeb104a13804 delivery 2392: success: 209.85.127.177_accepted_message. /Remote_host_said:_250_CAA01516_Message_accepted_for_delivery/
+@4000000038c3eeb027f41c7c new msg 12345
+@4000000038c3eeb027f6b0a4 info msg 12345: bytes 2343 from <dave@sill.org> qp 18695 uid 49491
+@4000000048c3eeb104a4492c status: local 0/10 remote 0/20
+@4000000048c3eeb104a6ecf4 end msg 869

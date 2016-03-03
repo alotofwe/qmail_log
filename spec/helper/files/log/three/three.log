@@ -1,0 +1,4 @@
+@4000000038c3eeb0287b55ac status: local 0/10 remote 1/20
+@4000000038c3eeb104a13804 delivery 125: success: 209.85.127.177_accepted_message. /Remote_host_said:_250_CAA01516_Message_accepted_for_delivery/
+@4000000038c3eeb104a4492c status: local 0/10 remote 0/20
+@4000000038c3eeb104a6ecf4 end msg 987
