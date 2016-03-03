@@ -18,18 +18,24 @@ module QmailLog
       QmailLog::SSH::Configure.backend(host, ssh_options)
       @runner = Specinfra::Runner
 
-      raise Errno::ENOENT unless @runner.check_file_is_file(path)
+      raise Errno::ENOENT unless @runner.check_file_is_file(path) or @runner.check_file_is_directory(path)
 
       data, qid_from_did, memory = [], {}, {}
 
-      @runner.get_file_content(path).stdout.split("\n").each do |log|
-        QmailLog::Analyzer.analyze(log, data, qid_from_did, memory)
+      files(path).each do |file|
+        @runner.get_file_content(file).stdout.split("\n").each do |log|
+          QmailLog::Analyzer.analyze(log, data, qid_from_did, memory)
+        end
       end
       data
     end
 
     def parse data, format = :json
       QmailLog::Formatter.run(format, data)
+    end
+
+    def files path
+      @runner.run_command("find #{path} -type f -exec ls -rt '{}' \\;").stdout.split("\n")
     end
   end
 end
