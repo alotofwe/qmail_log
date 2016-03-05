@@ -4,6 +4,12 @@ describe QmailLog do
   end
 
   describe '.analyze' do
+    before {
+      FileUtils.touch('./spec/helper/files/log/one.log',         mtime: Time.now - 300)
+      FileUtils.touch('./spec/helper/files/log/two.log',         mtime: Time.now - 200)
+      FileUtils.touch('./spec/helper/files/log/three/three.log', mtime: Time.now - 100)
+    }
+
     describe 'when given path is file' do
       let(:path) { './spec/helper/files/log/one.log' }
 

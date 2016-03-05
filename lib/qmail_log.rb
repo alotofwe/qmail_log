@@ -35,7 +35,7 @@ module QmailLog
     end
 
     def files path
-      @runner.run_command("find #{path} -type f -exec ls -rt '{}' \\;").stdout.split("\n")
+      @runner.run_command("find #{path} -type f -exec ls -rt '{}' +").stdout.split("\n")
     end
   end
 end
