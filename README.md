@@ -36,6 +36,9 @@ QmailLog.analyze(PATH_TO_LOG, SSH_HOST, {
 }) => array
 ```
 
+`PATH_TO_LOG` should be valid path to file or directory.  
+If analyzer receive directory path, it analyze all files in this directory.
+
 Returned array has following format:
 
 ```
