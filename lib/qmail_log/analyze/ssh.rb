@@ -1,7 +1,7 @@
 module QmailLog
   module Analyze
     class SSH < Base
-      def run host, path, ssh_options = {}
+      def run path, host, ssh_options = {}
         QmailLog::SSH::Configure.backend(host, ssh_options)
         @runner = Specinfra::Runner
 

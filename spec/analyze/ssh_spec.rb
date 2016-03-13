@@ -11,7 +11,7 @@ describe QmailLog::Analyze::SSH do
     let(:path) { './spec/helper/files/log/one.log' }
 
     it 'should analyze given file' do
-      expect( QmailLog.analyze(:ssh, host, path).length ).to eq(2)
+      expect( QmailLog.analyze(:ssh, path, host).length ).to eq(2)
     end
   end
 
@@ -19,7 +19,7 @@ describe QmailLog::Analyze::SSH do
     let(:path) { './spec/helper/files/log' }
 
     it 'should analyze all files in given directory' do
-      expect( QmailLog.analyze(:ssh, host, path).length ).to eq(4)
+      expect( QmailLog.analyze(:ssh, path, host).length ).to eq(4)
     end
   end
 end
