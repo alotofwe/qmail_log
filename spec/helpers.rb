@@ -14,7 +14,7 @@ module Helpers
        :region=>"remote",
        :to=>"lwq@w3.to",
        :status=>
-      "success:209.85.127.177_accepted_message./Remote_host_said:_250_CAA01516_Message_accepted_for_delivery/",
+      "success: 209.85.127.177_accepted_message. /Remote_host_said:_250_CAA01516_Message_accepted_for_delivery/",
         :queue_id=>"93869"},
         {:time=>
          {:new=>"2008-09-07T15:09:26Z",
@@ -30,7 +30,7 @@ module Helpers
           :region=>"remote",
           :to=>"lwq@w3.to",
           :status=>
-         "success:209.85.127.177_accepted_message./Remote_host_said:_250_CAA01516_Message_accepted_for_delivery/",
+         "success: 209.85.127.177_accepted_message. /Remote_host_said:_250_CAA01516_Message_accepted_for_delivery/",
            :queue_id=>"869"}]
   end
 

@@ -4,16 +4,10 @@ module QmailLog
       class << self
         def backend host, ssh_options
           ssh_options.symbolize_keys!
-
-          case host
-          when 'localhost', '127.0.0.1'
-            set :backend, :exec
-          else
-            set :backend,       :ssh
-            set :host,          host
-            set :ssh_options,   ssh_options
-            set :sudo_password, ssh_options[:password]
-          end
+          set :backend,       :ssh
+          set :host,          host
+          set :ssh_options,   ssh_options
+          set :sudo_password, ssh_options[:password]
         end
       end
     end
