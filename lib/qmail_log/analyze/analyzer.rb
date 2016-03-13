@@ -26,6 +26,7 @@ module QmailLog
           when /end/
             memory[queue_id][:time][:end] = time
             data << memory[queue_id].merge!({ queue_id: queue_id })
+            memory.delete(queue_id)
           end
 
           memory[queue_id][:time][$1.to_sym] = time if $1

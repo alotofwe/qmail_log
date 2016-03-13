@@ -1,7 +1,7 @@
 module QmailLog
   module Analyze
     class Base
-      attr_reader :results
+      attr_reader :results, :memory
 
       def initialize
         @results      = []

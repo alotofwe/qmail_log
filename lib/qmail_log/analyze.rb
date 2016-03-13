@@ -11,7 +11,8 @@ module QmailLog
       when :exec then klassname = 'Exec'
       when :ssh  then klassname = 'SSH'
       end
-      const_get(klassname).new.tap{ |o| o.run(*args) }.results
+      klass = const_get(klassname).new.tap{ |o| o.run(*args) }
+      { results: klass.results, unfinished: klass.memory }
     end
   end
 end
